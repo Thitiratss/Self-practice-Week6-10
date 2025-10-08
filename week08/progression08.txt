@@ -1,0 +1,16 @@
+รอบนี้หนูให้ AI ช่วยสร้างโจทย์ DOM เพื่อฝึกการเข้าถึงและจัดการ element บนหน้าเว็บ เช่น การสร้าง element ใหม่อย่าง <p>, <ul>, <li>, <span> แล้วลองใช้ appendChild, replaceChild, insertBefore, setAttribute เพื่อฝึกจัดการ DOM จริง ๆ
+
+ข้อ Homework จากที่อาจารย์ให้
+หนูลองทำโจทย์และให้ถามเพื่อนบ้างเพราะว่า import มาแล้วยังติด syntax error หนูเลือก element ที่จะแสดงผลใน DOM ด้วย document.getElementById('quote-list') แล้วสร้างฟังก์ชัน renderQuotes() ซึ่งทำหน้าที่ลบข้อความเดิมก่อน (quoteList.innerHTML = "") เพื่อให้ไม่มันไม่ขึ้นข้อความซ้ำซ้อน จากนั้น loop ผ่าน array ของ quote ด้วย forEach และสร้าง <p> สำหรับแต่ละ quote โดยใช้ document.createElement('p') แล้วให้ textContent เป็นข้อความของ quote และ author และ append เข้าไปใน quoteList (appendChild) ค่ะ
+
+DOM2 
+ข้อที่กดปุ่มหนูใช้ if(button.id === "...") เพื่อแยก action ของแต่ละปุ่ม เช่นปุ่มแรก Add Message แล้วสร้าง <p> ใหม่แล้ว append เป็น child ของ #messageBox ซึ่งทำให้หนูเข้าใจว่าการสร้าง element ใหม่ด้วย document.createElement และการเพิ่มลงใน DOM ด้วย appendChild ใช้งานอย่างไร ปุ่ม Clear All หนูลบ children ทั้งหมดของ #messageBox ด้วย innerHTML = "" ให้ลบออกทั้งหมดเลย element ก็ไม่เหลือ และปุ่ม Add Task หนูได้ฝึกสร้าง <li> ใหม่จากข้อความ input แล้ว append ไปที่ #tasksList ซึ่งทำให้สามารถ add item ใหม่ตาม user input ได้ค่ะ
+
+DOM3
+หนูได้เรียนรู้การจัดการ event ของปุ่มและการเปลี่ยนแปลง element หนูเลือกปุ่มทั้งหมดด้วย getElementsByTagName('button') และใช้ Array.from(buttons).forEach() เพื่อ loop แต่ละปุ่ม จากนั้นใช้ addEventListener เพื่อให้ปุ่มแต่ละตัวทำงานต่างกัน โดยปุ่มที่มี data-color จะเปลี่ยน background ของ <div id="colorBox"> ตามสีที่กำหนด และจากนั้นเปลี่ยนข้อความเป็นชื่อสีตัวพิมพ์ใหญ่ด้วย box.style.backgroundColor = color และ box.textContent = color.toUpperCase() 
+และปุ่ม reset หนูทำให้เปลี่ยนกลับเป็นสี lightgray และข้อความเป็น "BOX" โดยใช้เงื่อนไข if(button.id === "reset") ทำให้เห็น pattern การแยก action ของปุ่มหลายตัวใน loop เดียวกัน อีกส่วนคือการสร้างปุ่มใหม่ด้วย document.createElement('button') และเพิ่ม attribute dataset.color = "green" พร้อม append เข้า body ด้วย document.body.appendChild(newButton)
+ส่วนปุ่ม green หนูสร้างสร้างปุ่มใหม่ ใส่ textContent แล้ว append เข้า body จากนั้นหนูทำให้เปลี่ยนเป็นสีเขียวเมื่อคลิ๊ก ซึ่งช่วยฝึกการสร้าง element ใหม่และการกำหนด behavior ของปุ่มมากขึ้นค่ะ
+
+
+DOM4
+หนูได้ฝึกลบ <li> ที่มีข้อความ "Iced Coffee" ออกโดยการหา element ที่ตรงกับเงื่อนไข ele.textContent === "Iced Coffee" แล้วใช้ removeChild() ลบออก และหนูสร้าง <li> ใหม่ "Herbal Tea" พร้อม class "cold" และแทรกก่อน "Smoothie" โดยใช้ createElement('li') ตั้งค่า textContent และ setAttribute("class","cold") จากนั้นหา reference node "Smoothie" และใช้ insertBefore(newElement, smoothieElement) ตามที่อาจารย์สอนในห้อง จากนั้นหนู replace "Cappuccino" ด้วย "Flat White" และเปลี่ยน class เป็น "warm" โดยสร้าง element ใหม่ด้วย createElement ตั้งค่า textContent และ setAttribute แล้วใช้ replaceChild(newElement2, cappuccinoElement) เพื่อแทนที่ element เดิมค่ะ จากนั้นหนูloop ผ่าน children ของ <ul> เพื่อ console.log(textContent) ทุกตัวค่ะ
