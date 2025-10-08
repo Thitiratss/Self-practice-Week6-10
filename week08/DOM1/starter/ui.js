@@ -1,4 +1,4 @@
-import { addQuote, deleteQuote, updateQuote, getAllQuotes } from './quote.js'
+import { addQuote, getAllQuotes } from './quote.js'
 // Step 1: Create an array to hold quote objects
 let quotes = []
 
@@ -16,11 +16,11 @@ function renderQuotes() {
     const AllQuote = getAllQuotes()
     AllQuote.forEach(q => {
         let p = document.createElement('p')
-        p.textContent =`${q.text} - ${q.author}`
+        p.innerText = `${q.content} - ${q.author}`
         quoteList.appendChild(p)
-    })
+    }
+    )
 }
-
 // Step 4: Add test quotes manually and call renderQuotes()
 // Example:
 // addQuote('Stay hungry, stay foolish.', 'Steve Jobs')
@@ -28,5 +28,4 @@ function renderQuotes() {
 addQuote('Stay hungry, stay foolish.', 'Steve Jobs')
 addQuote('Do or do not. There is no try.', 'Yoda')
 addQuote('Simplicity is the ultimate sophistication.', 'Leonardo da Vinci')
-console.log(getAllQuotes());
 renderQuotes()
